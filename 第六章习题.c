@@ -2,6 +2,7 @@
 // （1）
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 /*int main(void)
 {
     int i, j, k;
@@ -208,7 +209,7 @@
 
 // 6.7
 // 假设今年的工业产值为100万元，产值增长率从键盘输入，请编程计算工业产值过多少年后可以实现翻一番。
-int main(void)
+/*int main(void)
 {
     int year = 0;
     double value = 100;
@@ -221,5 +222,89 @@ int main(void)
         year++;
     }
     printf("year = %d\n", year);
+    return 0;
+}*/
+
+// 6.8
+// 利用pi/2=1-1/3+1/5-1/7+1/9-1/11+...，计算pi的值，直到最后一项的绝对值小于10^-4为止,输出pi的值并统计累加的项数。
+/*int main(void)
+{
+    int n = 1, count = 1;     // 迭代次数，计数器
+    double sum = 1, term = 1; // sum为pi的值，term为每一项的值
+    while (fabs(term) >= 1e-4)
+    {
+        term = pow(-1, count) * (1.0 / (n + 2)); // pow幂运算，-1是底数，count是指数
+        sum = sum + term;
+        n = n + 2;
+        count++;
+    }
+    sum = 4 * sum;
+    printf("pi = %f,count = %d\n", sum, count);
+}*/
+
+// 6.9
+// 利用e=1+1/1!+1/2!+1/3!+...，计算e的值，直到最后一项的绝对值小于10^-5为止,输出e的值并统计累加的项数。
+/*int main(void)
+{
+    int n = 1, count = 1;     // 迭代次数，计数器
+    double sum = 1, term = 1; // sum为e的值，term为每一项的值
+    while (fabs(term) >= 1e-5)
+    {
+        term = term * (1.0 / n);
+        sum = sum + term;
+        n++;
+        count++;
+    }
+    printf("e = %f,count = %d\n", sum, count);
+}*/
+
+// 6.10
+// 水仙花数是指一个三位数，其各位数字的立方和等于该数本身，例如：153=1^3+5^3+3^3。编程计算并输出所有的水仙花数。
+/*int main(void)
+{
+    int i, a, b, c;
+    for (i = 100; i <= 999; i++)
+    {
+        a = i / 100;
+        b = i / 10 % 10;
+        c = i % 10;
+        if (i == a * a * a + b * b * b + c * c * c)
+        {
+            printf("%d\n", i);
+        }
+    }
+    return 0;
+}*/
+
+// 6.11
+// 已知不等式：1!+2!+3!+...+m!<n,编程对用户指定的n值计算并输出满足该不等式的m的整数解。
+/*int main(void)
+{
+    int n, m = 1, sum = 1; // n为用户输入的值，m为满足不等式的最小值，sum为累加的值
+    printf("Input n:");
+    scanf("%d", &n);
+    while (sum < n)
+    {
+        m++;
+        sum = sum + m * m * m;
+    }
+    printf("m = %d\n", m);
+    return 0;
+}*/
+
+// 6.12
+// 输入一些正数，编程计算并输出这些正数的和，输入负数或零时表示输入数据结束。
+int main(void)
+{
+    int n, sum = 0; // n为用户输入的值，sum为累加的值
+    printf("Input n:");
+    scanf("%d", &n);
+    while (n > 0)
+    {
+        sum = sum + n;
+        printf("Input n:");
+        scanf("%d", &n);
+    }
+    printf("sum = %d\n", sum);
     return 0;
 }
