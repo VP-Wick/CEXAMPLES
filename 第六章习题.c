@@ -114,7 +114,7 @@
 
 // （5）
 // 利用sin(x)≈x-x^3/3!+x^5/5!-x^7/7!+...，计算sin(x)的值，直到最后一项的绝对值小于10^-5为止。
-int main(void)
+/*int main(void)
 {
     int n = 1, count = 1;//迭代次数，计数器
     double x;//输入的角度值
@@ -131,5 +131,95 @@ int main(void)
         count++;
     } while (fabs(term) >= 1e-5);
     printf("sin(x) = %f,count = %d\n", sum, count);
+    return 0;
+}*/
+
+// 6.3
+/**
+ * 有一条长阶梯，若每步跨两阶，最后剩下1阶；若每步跨3阶，最后剩2阶；
+ * 若每步跨5阶，最后剩4阶；若每步跨6阶，最后剩5阶；
+ * 只有每步跨7阶，最后刚好一阶不剩。编程求出阶梯共有多少阶。
+ */
+/*int main(void)
+{
+    int x = 1, find = 0;
+    while (!find)
+    {
+        if (x % 2 == 1 &&x % 3 == 2 &&x % 5 == 4 &&x % 6 == 5 &&x % 7 == 0)
+        {
+            printf("x = %d\n", x);
+            find = 1;
+        }
+        x++;
+    }
+    return 0;
+}*/
+
+// 6.4
+// 编程计算并输出1到n之间的所有数的平方和立方。其中，n值由键盘输入。
+/*int main(void)
+{
+    int n, i;
+    long sum1 = 0, sum2 = 0;
+    printf("Input n:");
+    scanf("%d", &n);
+    for (i = 1; i <= n; i++)
+    {
+        sum1 += i * i;
+        sum2 += i * i * i;
+    }
+    printf("sum1 = %ld,sum2 = %ld\n", sum1, sum2);
+    return 0;
+}*/
+
+// 6.5
+// 编程按每隔10°输出0°到300°之间的华氏温度到摄氏温度的对照表。
+// 已知华氏温度与摄氏温度的转换公式为：C=5/9*(F-32)。
+// 其中，C表示摄氏温度，F表示华氏温度。
+/*int main(void)
+{
+    int f;
+    float c;
+    for (f = 0; f <= 300; f = f + 10)
+    {
+        c = 5.0 / 9 * (f - 32);
+        printf("f = %d,c = %f\n", f, c);
+    }
+    return 0;
+}*/
+
+// 6.6
+/**
+ * 假设银行一年整存零取的月息为1.875%，现在某人手头有一笔钱，他打算在今后五年中，每年年底取出1000元作为孩子的教育金，
+ * 到第5年孩子毕业时刚好取完这笔钱，请编程计算第1年年初时他应该存入银行多少钱。
+ * 注意：每年年底结算一次，扣除取出的钱，剩余的作为下一年度存款本金。每年的利息按月计算，不是复利。
+ */
+/*int main(void)
+{
+    int i;
+    double money = 1000;
+    for (i = 1; i <= 5; i++)
+    {
+        money = (money + 1000) / (1 + 0.01875 / 12);
+    }
+    printf("money = %f\n", money);
+    return 0;
+}*/
+
+// 6.7
+// 假设今年的工业产值为100万元，产值增长率从键盘输入，请编程计算工业产值过多少年后可以实现翻一番。
+int main(void)
+{
+    int year = 0;
+    double value = 100;
+    double rate;
+    printf("Input rate:");
+    scanf("%lf", &rate);
+    while (value < 200)
+    {
+        value = value * (1 + rate);
+        year++;
+    }
+    printf("year = %d\n", year);
     return 0;
 }
